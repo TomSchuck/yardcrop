@@ -68,7 +68,7 @@ export const MOCK_LISTINGS: Listing[] = [
     pickupInstructions: "Backyard garden - come through the side gate (code: 1234). Baskets and bags provided.",
     contactMethod: "phone",
     contactPhone: "(760) 555-0104",
-    photoUrl: "https://images.unsplash.com/photo-1546470427-0d4db154ceb8?w=800&q=80",
+    photoUrl: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=800&q=80",
     createdAt: "2026-02-06T16:00:00Z",
   },
   {
@@ -119,7 +119,7 @@ export const MOCK_LISTINGS: Listing[] = [
     pickupInstructions: "Egg fridge is by the garage. Take a carton and leave $5 in the jar if you can, but free is fine too.",
     contactMethod: "phone",
     contactPhone: "(760) 555-0107",
-    photoUrl: "https://images.unsplash.com/photo-1569288052389-dac9b0ac9eac?w=800&q=80",
+    photoUrl: "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?w=800&q=80",
     createdAt: "2026-02-09T06:00:00Z",
   },
   {
@@ -170,7 +170,7 @@ export const MOCK_LISTINGS: Listing[] = [
     pickupInstructions: "Herb garden is on the side of the house. Help yourself anytime!",
     contactMethod: "phone",
     contactPhone: "(760) 555-0110",
-    photoUrl: "https://images.unsplash.com/photo-1515586838455-8f8f940d6853?w=800&q=80",
+    photoUrl: "https://images.unsplash.com/photo-1599940824399-b87987ceb72a?w=800&q=80",
     createdAt: "2026-02-07T10:30:00Z",
   },
   {
@@ -271,7 +271,7 @@ export const MOCK_LISTINGS: Listing[] = [
     pickupInstructions: "Kumquat tree is in the front yard by the fence. Pick as many as you want!",
     contactMethod: "phone",
     contactPhone: "(760) 555-0116",
-    photoUrl: "https://images.unsplash.com/photo-1585468274952-66591eb14165?w=800&q=80",
+    photoUrl: "https://images.unsplash.com/photo-1526318472351-c75fcf070305?w=800&q=80",
     createdAt: "2026-02-09T10:15:00Z",
   },
   {

@@ -17,6 +17,7 @@ export const MOCK_LISTINGS: Listing[] = [
     pickupInstructions: "On the porch at 123 Elm St. Help yourself to a bag, just text me when you're coming by.",
     contactMethod: "phone",
     contactPhone: "(760) 555-0101",
+    photoUrl: "https://images.unsplash.com/photo-1590502593747-42a996133562?w=800&q=80",
     createdAt: "2026-02-08T10:00:00Z",
   },
   {
@@ -33,6 +34,7 @@ export const MOCK_LISTINGS: Listing[] = [
     contactMethod: "both",
     contactPhone: "(760) 555-0102",
     contactEmail: "carlos.r@email.com",
+    photoUrl: "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=800&q=80",
     createdAt: "2026-02-07T14:30:00Z",
   },
   {
@@ -48,6 +50,7 @@ export const MOCK_LISTINGS: Listing[] = [
     pickupInstructions: "Come to the side gate and grab what you need from the basket. Leave a note so I know who stopped by!",
     contactMethod: "email",
     contactEmail: "jen.garden@email.com",
+    photoUrl: "https://images.unsplash.com/photo-1563252722-6434563a985d?w=800&q=80",
     createdAt: "2026-02-09T08:15:00Z",
   },
 
@@ -65,6 +68,7 @@ export const MOCK_LISTINGS: Listing[] = [
     pickupInstructions: "Backyard garden - come through the side gate (code: 1234). Baskets and bags provided.",
     contactMethod: "phone",
     contactPhone: "(760) 555-0104",
+    photoUrl: "https://images.unsplash.com/photo-1546470427-0d4db154ceb8?w=800&q=80",
     createdAt: "2026-02-06T16:00:00Z",
   },
   {
@@ -80,6 +84,7 @@ export const MOCK_LISTINGS: Listing[] = [
     pickupInstructions: "Herbs are in pots on the front porch. Bring scissors or I have some you can borrow.",
     contactMethod: "email",
     contactEmail: "sarah.herbs@email.com",
+    photoUrl: "https://images.unsplash.com/photo-1618164436241-4473940d1f5c?w=800&q=80",
     createdAt: "2026-02-08T11:30:00Z",
   },
   {
@@ -95,6 +100,7 @@ export const MOCK_LISTINGS: Listing[] = [
     pickupInstructions: "Text me and I'll leave them in a cooler on the porch. Usually home on weekends.",
     contactMethod: "phone",
     contactPhone: "(760) 555-0106",
+    photoUrl: "https://images.unsplash.com/photo-1604495772376-9657f0035eb5?w=800&q=80",
     createdAt: "2026-02-05T09:00:00Z",
   },
 
@@ -113,6 +119,7 @@ export const MOCK_LISTINGS: Listing[] = [
     pickupInstructions: "Egg fridge is by the garage. Take a carton and leave $5 in the jar if you can, but free is fine too.",
     contactMethod: "phone",
     contactPhone: "(760) 555-0107",
+    photoUrl: "https://images.unsplash.com/photo-1569288052389-dac9b0ac9eac?w=800&q=80",
     createdAt: "2026-02-09T06:00:00Z",
   },
   {
@@ -129,6 +136,7 @@ export const MOCK_LISTINGS: Listing[] = [
     contactMethod: "both",
     contactPhone: "(760) 555-0108",
     contactEmail: "mike.oranges@email.com",
+    photoUrl: "https://images.unsplash.com/photo-1547514701-42782101795e?w=800&q=80",
     createdAt: "2026-02-04T13:00:00Z",
   },
   {
@@ -144,6 +152,7 @@ export const MOCK_LISTINGS: Listing[] = [
     pickupInstructions: "Available Saturday mornings 8am-11am. Ring doorbell and I'll bring them out fresh.",
     contactMethod: "email",
     contactEmail: "yuki.garden@email.com",
+    photoUrl: "https://images.unsplash.com/photo-1449300079323-02e209d9d3a6?w=800&q=80",
     createdAt: "2026-02-08T07:45:00Z",
   },
 
@@ -161,6 +170,7 @@ export const MOCK_LISTINGS: Listing[] = [
     pickupInstructions: "Herb garden is on the side of the house. Help yourself anytime!",
     contactMethod: "phone",
     contactPhone: "(760) 555-0110",
+    photoUrl: "https://images.unsplash.com/photo-1515586838455-8f8f940d6853?w=800&q=80",
     createdAt: "2026-02-07T10:30:00Z",
   },
   {
@@ -177,6 +187,7 @@ export const MOCK_LISTINGS: Listing[] = [
     pickupInstructions: "Will post exact pickup times closer to the date. Planning Saturday morning.",
     contactMethod: "email",
     contactEmail: "tom.orchard@email.com",
+    photoUrl: "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=800&q=80",
     createdAt: "2026-02-09T15:00:00Z",
   },
   {
@@ -192,6 +203,7 @@ export const MOCK_LISTINGS: Listing[] = [
     pickupInstructions: "Peppers are in a basket by the mailbox. First come, first served. I restock daily.",
     contactMethod: "phone",
     contactPhone: "(760) 555-0112",
+    photoUrl: "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=800&q=80",
     createdAt: "2026-02-06T08:00:00Z",
   },
   {
@@ -208,6 +220,7 @@ export const MOCK_LISTINGS: Listing[] = [
     pickupInstructions: "Text to reserve eggs. I collect fresh on Wed/Sat mornings.",
     contactMethod: "phone",
     contactPhone: "(760) 555-0113",
+    photoUrl: "https://images.unsplash.com/photo-1498654077810-12c21d4d6dc3?w=800&q=80",
     createdAt: "2026-02-08T09:30:00Z",
   },
 
@@ -226,6 +239,7 @@ export const MOCK_LISTINGS: Listing[] = [
     contactMethod: "both",
     contactPhone: "(760) 555-0114",
     contactEmail: "george.citrus@email.com",
+    photoUrl: "https://images.unsplash.com/photo-1577234286642-fc512a5f8f11?w=800&q=80",
     createdAt: "2026-02-05T11:00:00Z",
   },
   {
@@ -241,6 +255,7 @@ export const MOCK_LISTINGS: Listing[] = [
     pickupInstructions: "Garden is in the backyard. Come through side gate and harvest what you need. Scissors provided.",
     contactMethod: "email",
     contactEmail: "helen.veggies@email.com",
+    photoUrl: "https://images.unsplash.com/photo-1490914327627-9fe8d52f4d90?w=800&q=80",
     createdAt: "2026-02-07T14:00:00Z",
   },
   {
@@ -256,6 +271,7 @@ export const MOCK_LISTINGS: Listing[] = [
     pickupInstructions: "Kumquat tree is in the front yard by the fence. Pick as many as you want!",
     contactMethod: "phone",
     contactPhone: "(760) 555-0116",
+    photoUrl: "https://images.unsplash.com/photo-1585468274952-66591eb14165?w=800&q=80",
     createdAt: "2026-02-09T10:15:00Z",
   },
   {
@@ -271,6 +287,7 @@ export const MOCK_LISTINGS: Listing[] = [
     pickupInstructions: "Peppers are by the front door in labeled bags by heat level. Ring bell if you want to chat!",
     contactMethod: "phone",
     contactPhone: "(760) 555-0117",
+    photoUrl: "https://images.unsplash.com/photo-1583119022894-919a68a3d0e3?w=800&q=80",
     createdAt: "2026-02-08T16:30:00Z",
   },
   {
@@ -287,6 +304,7 @@ export const MOCK_LISTINGS: Listing[] = [
     pickupInstructions: "Email to get on the list for the next harvest.",
     contactMethod: "email",
     contactEmail: "steve.bees@email.com",
+    photoUrl: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=800&q=80",
     createdAt: "2026-02-09T12:00:00Z",
   },
 ];

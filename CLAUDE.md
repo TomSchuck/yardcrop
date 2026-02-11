@@ -34,9 +34,9 @@ All listing state is managed via React Context (`src/contexts/ListingsContext.ts
 
 ### Key Technical Decisions
 
-**Mapbox Integration:** Uses `react-map-gl/mapbox` with dynamic import (`ssr: false`) to avoid SSR issues. Map centers on North County SD (33.13, -117.27).
+**Mapbox Integration:** Uses `react-map-gl/mapbox` with dynamic import (`ssr: false`) to avoid SSR issues. Map centers on North County SD (33.13, -117.27). Geocoding for address/zip search uses Mapbox Geocoding API v5 via `src/lib/geocoding.ts`, with results bounded to San Diego County.
 
-**Mock Data Layer:** Currently no backend. `src/lib/mock-data.ts` contains 18 sample listings, `src/lib/mock-api.ts` provides async functions mimicking API calls. Context methods are designed for easy swap to real backend.
+**Mock Data Layer:** Currently no backend. `src/lib/mock-data.ts` contains sample listings, `src/lib/mock-api.ts` provides async functions mimicking API calls. Context methods are designed for easy swap to real backend.
 
 **Responsive Design:** Mobile uses tab bar navigation (Map/List views), desktop uses split-panel layout (40% sidebar + 60% map). Breakpoints: md (768px), lg (1024px).
 

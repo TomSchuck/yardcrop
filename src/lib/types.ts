@@ -98,3 +98,30 @@ export interface SignupInput {
   neighborhood: string;
   agreedToGuidelines: boolean;
 }
+
+// Toast types
+export type ToastType = "success" | "error" | "info";
+
+export interface Toast {
+  id: string;
+  message: string;
+  type: ToastType;
+  duration?: number;
+}
+
+// Report/Flag types
+export type ReportReason =
+  | "inappropriate_content"
+  | "incorrect_info"
+  | "spam"
+  | "safety_concern"
+  | "other";
+
+export interface ListingFlag {
+  id: string;
+  listingId: string;
+  userId: string;
+  reason: ReportReason;
+  details?: string;
+  createdAt: string;
+}

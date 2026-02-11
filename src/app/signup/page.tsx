@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
+import { useToast } from "@/contexts/ToastContext";
 
 const NEIGHBORHOODS = [
   "Carlsbad",
@@ -20,6 +21,7 @@ const NEIGHBORHOODS = [
 export default function SignupPage() {
   const router = useRouter();
   const { signup, loginWithGoogle, isLoading } = useAuth();
+  const { showSuccess } = useToast();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -74,6 +76,7 @@ export default function SignupPage() {
     });
 
     if (result.success) {
+      showSuccess("Account created!");
       router.push("/");
     } else {
       setError(result.error || "Signup failed. Please try again.");
@@ -85,6 +88,7 @@ export default function SignupPage() {
     const result = await loginWithGoogle();
 
     if (result.success) {
+      showSuccess("Account created!");
       router.push("/");
     } else {
       setError(result.error || "Google signup failed. Please try again.");

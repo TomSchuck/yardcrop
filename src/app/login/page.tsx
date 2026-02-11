@@ -4,10 +4,12 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
+import { useToast } from "@/contexts/ToastContext";
 
 export default function LoginPage() {
   const router = useRouter();
   const { login, loginWithGoogle, isLoading } = useAuth();
+  const { showSuccess } = useToast();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -31,6 +33,7 @@ export default function LoginPage() {
     const result = await login({ email, password });
 
     if (result.success) {
+      showSuccess("Welcome back!");
       router.push("/");
     } else {
       setError(result.error || "Login failed. Please try again.");
@@ -42,6 +45,7 @@ export default function LoginPage() {
     const result = await loginWithGoogle();
 
     if (result.success) {
+      showSuccess("Welcome back!");
       router.push("/");
     } else {
       setError(result.error || "Google login failed. Please try again.");

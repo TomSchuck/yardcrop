@@ -2,6 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { useListings } from "@/contexts/ListingsContext";
+import { useFlags } from "@/contexts/FlagsContext";
+import { useToast } from "@/contexts/ToastContext";
+import { ReportReason } from "@/lib/types";
+import ReportModal from "./ReportModal";
 
 interface ListingDetailProps {
   listingId: string;
@@ -18,12 +22,38 @@ const TYPE_COLORS: Record<string, string> = {
 
 export default function ListingDetail({ listingId, onClose }: ListingDetailProps) {
   const { getListingById } = useListings();
+  const { addFlag, hasUserFlagged } = useFlags();
+  const { showSuccess, showError } = useToast();
   const [showContact, setShowContact] = useState(false);
+  const [showReportModal, setShowReportModal] = useState(false);
 
   // Reset contact visibility when listing changes
   useEffect(() => {
     setShowContact(false);
   }, [listingId]);
+
+  const handleShowContact = () => {
+    setShowContact(true);
+  };
+
+  const handleReportClick = () => {
+    if (hasUserFlagged(listingId)) {
+      showError("You have already reported this listing");
+      return;
+    }
+    setShowReportModal(true);
+  };
+
+  const handleReportSubmit = (reason: ReportReason, details?: string) => {
+    const success = addFlag(listingId, reason, details);
+    setShowReportModal(false);
+
+    if (success) {
+      showSuccess("Report submitted. Thank you for helping keep our community safe.");
+    } else {
+      showError("You have already reported this listing");
+    }
+  };
 
   const listing = getListingById(listingId);
 
@@ -128,7 +158,7 @@ export default function ListingDetail({ listingId, onClose }: ListingDetailProps
           <div className="pt-4 border-t border-border">
             {!showContact ? (
               <button
-                onClick={() => setShowContact(true)}
+                onClick={handleShowContact}
                 className="w-full bg-harvest-gold text-charcoal py-3 px-4 rounded-lg font-semibold hover:bg-harvest-gold/90 transition-colors"
               >
                 Show Contact Info
@@ -174,12 +204,24 @@ export default function ListingDetail({ listingId, onClose }: ListingDetailProps
 
           {/* Report link */}
           <div className="pt-4 text-center">
-            <button className="text-sm text-warm-gray hover:text-error-red transition-colors">
+            <button
+              onClick={handleReportClick}
+              className="text-sm text-warm-gray hover:text-error-red transition-colors"
+            >
               Report this listing
             </button>
           </div>
         </div>
       </div>
+
+      {/* Report Modal */}
+      <ReportModal
+        isOpen={showReportModal}
+        listingId={listingId}
+        listingName={listing.produceName}
+        onClose={() => setShowReportModal(false)}
+        onSubmit={handleReportSubmit}
+      />
     </div>
   );
 }

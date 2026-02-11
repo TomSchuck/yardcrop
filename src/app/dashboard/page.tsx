@@ -3,18 +3,26 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useListings } from "@/contexts/ListingsContext";
+import { useToast } from "@/contexts/ToastContext";
 import DashboardListingRow from "@/components/DashboardListingRow";
 import DeleteConfirmDialog from "@/components/DeleteConfirmDialog";
 import { Listing } from "@/lib/types";
 
 export default function DashboardPage() {
-  const { getUserCreatedListings, toggleListingActive, deleteListing } = useListings();
+  const { getUserCreatedListings, toggleListingActive, deleteListing, getListingById } = useListings();
+  const { showSuccess } = useToast();
   const [deleteTarget, setDeleteTarget] = useState<Listing | null>(null);
 
   const userListings = getUserCreatedListings();
 
   const handleDeactivate = (id: string) => {
+    const listing = getListingById(id);
     toggleListingActive(id);
+    if (listing?.isActive === false) {
+      showSuccess("Listing reactivated");
+    } else {
+      showSuccess("Listing deactivated");
+    }
   };
 
   const handleDeleteClick = (listing: Listing) => {
@@ -25,6 +33,7 @@ export default function DashboardPage() {
     if (deleteTarget) {
       deleteListing(deleteTarget.id);
       setDeleteTarget(null);
+      showSuccess("Listing deleted");
     }
   };
 

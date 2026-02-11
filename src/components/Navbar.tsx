@@ -3,10 +3,17 @@
 import Link from "next/link";
 import { useListings } from "@/contexts/ListingsContext";
 import { useAuth } from "@/contexts/AuthContext";
+import { useToast } from "@/contexts/ToastContext";
 
 export default function Navbar() {
   const { userCreatedCount } = useListings();
   const { user, isAuthenticated, logout } = useAuth();
+  const { showInfo } = useToast();
+
+  const handleLogout = () => {
+    logout();
+    showInfo("Logged out");
+  };
 
   return (
     <nav className="bg-garden-green text-white h-14 flex items-center justify-between px-4 shadow-md z-50">
@@ -52,7 +59,7 @@ export default function Navbar() {
 
             {/* Logout button */}
             <button
-              onClick={logout}
+              onClick={handleLogout}
               className="text-sm hover:text-cream/80 transition-colors"
             >
               Log Out

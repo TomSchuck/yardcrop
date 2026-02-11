@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Listing, ProduceType, AvailabilityStatus, ContactMethod, CreateListingInput } from "@/lib/types";
 import { useListings } from "@/contexts/ListingsContext";
+import { useToast } from "@/contexts/ToastContext";
 import ProduceTypeSelector from "./ProduceTypeSelector";
 import AvailabilitySelector from "./AvailabilitySelector";
 import ContactMethodSelector from "./ContactMethodSelector";
@@ -18,6 +19,7 @@ interface CreateListingFormProps {
 export default function CreateListingForm({ initialListing, onSuccess }: CreateListingFormProps) {
   const router = useRouter();
   const { addListing, updateListing } = useListings();
+  const { showSuccess } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const isEdit = !!initialListing;
@@ -98,13 +100,16 @@ export default function CreateListingForm({ initialListing, onSuccess }: CreateL
       // Update existing listing
       const updated = updateListing(initialListing.id, input);
       if (updated && onSuccess) {
+        showSuccess("Listing updated!");
         onSuccess(updated);
       } else if (updated) {
+        showSuccess("Listing updated!");
         router.push("/dashboard");
       }
     } else {
       // Create new listing
       const newListing = addListing(input);
+      showSuccess("Listing posted!");
       if (onSuccess) {
         onSuccess(newListing);
       } else {

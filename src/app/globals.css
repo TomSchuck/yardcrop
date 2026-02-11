@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+:root {
+  /* YardCrop Color Palette */
+  --color-garden-green: #4A7C59;
+  --color-soil-brown: #8B6F47;
+  --color-cream: #FFF8F0;
+  --color-harvest-gold: #D4A843;
+  --color-soft-white: #FFFFFF;
+  --color-charcoal: #2D2D2D;
+  --color-warm-gray: #6B6B6B;
+  --color-error-red: #C0392B;
+  --color-success-green: #27AE60;
+  --color-border: #E0D8CF;
+}
+
+@theme inline {
+  /* Colors */
+  --color-garden-green: var(--color-garden-green);
+  --color-soil-brown: var(--color-soil-brown);
+  --color-cream: var(--color-cream);
+  --color-harvest-gold: var(--color-harvest-gold);
+  --color-soft-white: var(--color-soft-white);
+  --color-charcoal: var(--color-charcoal);
+  --color-warm-gray: var(--color-warm-gray);
+  --color-error-red: var(--color-error-red);
+  --color-success-green: var(--color-success-green);
+  --color-border: var(--color-border);
+
+  /* Font */
+  --font-sans: var(--font-nunito), system-ui, sans-serif;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+}
+
+/* Ensure full height for map layout */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+#__next {
+  height: 100%;
+}

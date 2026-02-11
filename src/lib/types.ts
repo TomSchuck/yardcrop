@@ -76,3 +76,25 @@ export interface CreateListingInput {
   contactEmail?: string;
   photoUrl?: string;
 }
+
+// Auth Types
+export interface User {
+  id: string;
+  email: string;
+  displayName: string;
+  neighborhood: string;
+  createdAt: string;
+}
+
+export interface LoginInput {
+  email: string;
+  password: string;
+}
+
+export interface SignupInput {
+  email: string;
+  password: string;
+  displayName: string;
+  neighborhood: string;
+  agreedToGuidelines: boolean;
+}

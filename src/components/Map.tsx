@@ -13,12 +13,19 @@ const INITIAL_VIEW = {
   zoom: 11,
 };
 
+export interface FlyToLocation {
+  latitude: number;
+  longitude: number;
+  zoom?: number;
+}
+
 interface MapProps {
   className?: string;
   listings?: ListingCardData[];
   selectedListingId?: string | null;
   onListingSelect?: (id: string) => void;
   onBoundsChange?: (bounds: { north: number; south: number; east: number; west: number }) => void;
+  flyToLocation?: FlyToLocation | null;
 }
 
 export default function Map({
@@ -27,8 +34,21 @@ export default function Map({
   selectedListingId,
   onListingSelect,
   onBoundsChange,
+  flyToLocation,
 }: MapProps) {
   const [viewState, setViewState] = useState(INITIAL_VIEW);
+
+  // Fly to location when flyToLocation prop changes
+  useEffect(() => {
+    if (flyToLocation) {
+      setViewState((prev) => ({
+        ...prev,
+        latitude: flyToLocation.latitude,
+        longitude: flyToLocation.longitude,
+        zoom: flyToLocation.zoom ?? 14,
+      }));
+    }
+  }, [flyToLocation]);
 
   const handleMove = useCallback(
     (evt: { viewState: typeof viewState }) => {

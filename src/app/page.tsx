@@ -12,6 +12,7 @@ import MobileTabBar from "@/components/MobileTabBar";
 import FloatingActionButton from "@/components/FloatingActionButton";
 import { ListingCardData } from "@/lib/types";
 import { useListings } from "@/contexts/ListingsContext";
+import { FlyToLocation } from "@/components/Map";
 
 // Dynamic import for Map to avoid SSR issues with Mapbox
 const Map = dynamic(() => import("@/components/Map"), {
@@ -61,6 +62,9 @@ function HomeContent() {
   const [activeFilter, setActiveFilter] = useState<FilterCategory>("all");
   const [searchQuery, setSearchQuery] = useState("");
 
+  // Map location state (for geocoding)
+  const [flyToLocation, setFlyToLocation] = useState<FlyToLocation | null>(null);
+
   // Get listings from context (reactive to context changes)
   const listings: ListingCardData[] = getFilteredListings(
     { category: activeFilter, searchQuery },
@@ -98,6 +102,20 @@ function HomeContent() {
     setSelectedListingId(null);
     setShowDetail(false);
   }, []);
+
+  // Handle location selection from geocoding
+  const handleLocationSelect = useCallback(
+    (location: { latitude: number; longitude: number; placeName: string }) => {
+      setFlyToLocation({
+        latitude: location.latitude,
+        longitude: location.longitude,
+        zoom: 14,
+      });
+      // Clear the flyTo after a short delay to allow re-triggering same location
+      setTimeout(() => setFlyToLocation(null), 100);
+    },
+    []
+  );
 
   // Empty state component
   const EmptyState = () => (
@@ -145,7 +163,11 @@ function HomeContent() {
             <>
               {/* Search & Filters */}
               <div className="p-4 border-b border-border space-y-3">
-                <SearchBar value={searchQuery} onChange={handleSearchChange} />
+                <SearchBar
+                  value={searchQuery}
+                  onChange={handleSearchChange}
+                  onLocationSelect={handleLocationSelect}
+                />
                 <FilterChips
                   activeFilter={activeFilter}
                   onFilterChange={handleFilterChange}
@@ -188,6 +210,7 @@ function HomeContent() {
             listings={listings}
             selectedListingId={selectedListingId}
             onListingSelect={handleListingSelect}
+            flyToLocation={flyToLocation}
           />
         </div>
 
@@ -209,6 +232,7 @@ function HomeContent() {
                   className="shadow-md"
                   value={searchQuery}
                   onChange={handleSearchChange}
+                  onLocationSelect={handleLocationSelect}
                 />
                 <FilterChips
                   activeFilter={activeFilter}
@@ -222,6 +246,7 @@ function HomeContent() {
                 listings={listings}
                 selectedListingId={selectedListingId}
                 onListingSelect={handleListingSelect}
+                flyToLocation={flyToLocation}
               />
 
               {/* Floating Action Button */}
@@ -236,7 +261,11 @@ function HomeContent() {
             <div className="flex-1 flex flex-col bg-soft-white">
               {/* Search & Filters */}
               <div className="p-3 border-b border-border space-y-2">
-                <SearchBar value={searchQuery} onChange={handleSearchChange} />
+                <SearchBar
+                  value={searchQuery}
+                  onChange={handleSearchChange}
+                  onLocationSelect={handleLocationSelect}
+                />
                 <FilterChips
                   activeFilter={activeFilter}
                   onFilterChange={handleFilterChange}
